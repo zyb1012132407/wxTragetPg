@@ -1,0 +1,62 @@
+<!-- 姓名：目标完成（模块）
+     作者：Yanbo Zhao(zyb1012132407)
+     GitHub项目:https://github.com/zyb1012132407/wxTarget（目前私有）
+     版本:1.0.0
+     进度:目标功能完善的差不多了，本地存储，时间判断还没有确定，金币接口待定，给朱敏（儿子）做了注释。
+ -->
+
+<view class="container">
+
+  <text class='title'>肥宅雄起！金币：{{coinsP}}</text>
+
+  <view wx:for="{{targets}}" wx:key="id" id='{{item.id}}'>
+
+    <view 
+              class='target' 
+              id='{{item.id}}'
+              catchlongpress='delTarget' 
+              
+              >
+      <!-- 目标内容+待完成天数 -->
+      <text class='targetText'>{{item.targetText}}\n(还有{{item.allDays-item.finishDays}}天才可以完成)</text>
+
+      <!-- 图标样式 待修改 -->
+      <button type='primary' 
+              class='iconfont targetIco {{item.todayDone}}'
+              bindtap='addProgress' 
+              id='{{item.id}}'/>
+      <progress 
+              class="targetProgress"  
+              percent='{{item.targetProgress}}' 
+              active />
+
+    </view> 
+  </view>
+  <!-- 添加按钮 -->
+  <view class='target' hidden='{{addButtonHidden}}'>
+      <button type='primary'
+              class='targetAddIco'
+              bindtap='addTargetPageLaunch'>
+              +</button>
+  </view>
+
+  <!-- 添加列表遮罩层 -->
+  <view class="shade" bindtap='hide' style='display:{{disp}}'></view>   
+      <view class="conts" style='display:{{disp}}'>  
+          <input 
+              class="font" 
+              maxlength="10" 
+              bindinput='inputTarget' 
+              placeholder="请输入你的目标" 
+              id="targetText"/>  
+          <input 
+              class="font" 
+              type="number" 
+              bindinput='inputTarget'
+              maxlength="2"
+              placeholder="请输入要完成的日期" 
+              id="targetDays"/>
+          <button type='primary' class="button01" bindtap='inputTargetPush'><text>提交</text></button>         
+      </view>
+
+</view>

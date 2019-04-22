@@ -1,0 +1,12 @@
+/* pages/index1/index1.wxss */
+.push{
+  width: 100%;
+  height: 100%;
+  background-color: green;
+}
+.scroll-viewFORindex1{
+  /* 初始宽度为0，需要手动设定 */
+  height: 300rpx;
+  width: 100%;
+  /* background-color: green; */
+}

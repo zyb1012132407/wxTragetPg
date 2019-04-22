@@ -1,0 +1,17 @@
+<!-- 导航滑动块 -->
+<swiper
+  class="scroll-viewFORindex1"
+  indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}"
+  interval="{{interval}}"
+  duration="{{duration}}">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" width="355" height="150" />
+    </swiper-item>
+  </block>
+</swiper>
+
+<!-- <view class="container">
+  <view class="push">123</view>
+</view> -->

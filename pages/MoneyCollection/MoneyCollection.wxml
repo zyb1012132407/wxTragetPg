@@ -1,0 +1,6 @@
+<!--pages/CoinCollection/CoinCollection.wxml-->
+<view class='container'>
+  <view>您已经攒了:{{usermoneyShow}}元</view>
+  <input class='coinsInput' bindinput='coinsInput' placeholder="攒多少钱" />
+  <button bindtap="coinPush" type="primary">按钮</button>
+</view>
