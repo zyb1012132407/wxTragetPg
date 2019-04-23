@@ -9,7 +9,6 @@ var app = getApp()
 
 //这里不是赋值，而是指向（target改变,全局变量的target也会改变）
 var target = app.globalData.target
-var coins = app.globalData.coins
 
 Page({
   /**
@@ -60,7 +59,11 @@ Page({
       })
     }
   },
-
+  onShow:function(options){
+    this.setData({
+      coinsP: app.globalData.coins,
+    })
+  },
   //启动添加函数界面（遮罩层）
   addTargetPageLaunch:function(){
     //设置遮罩层显示
@@ -105,11 +108,11 @@ Page({
       duration: 2000,
     })
     //增加金币
-    coins += coins;
+    app.globalData.coins += 20;
     //刷新targets(虽然指向，但是只是刷新一下，稳定)
     this.setData({
       targets: target,
-      coinsP:coins,
+      coinsP: app.globalData.coins,
       disp: "none",
     })
     //重载生命周期的onLoad()
@@ -156,7 +159,7 @@ Page({
     //判断进度是不是达到或超过100，如果是则提示成功，并删除目标
     if (target[res.target.id].targetProgress >= 100){
       //增加金币
-      coins += 50;
+      app.globalData.coins += 50;
       wx.showModal({
         title: '恭喜',
         content: '恭喜完成目标，再接再厉！ 金币+50',
@@ -172,7 +175,7 @@ Page({
     //刷新targets数组
     this.setData({
       targets: target,
-      coinsP:coins,
+      coinsP: app.globalData.coins,
     })
   },
 
@@ -209,9 +212,9 @@ Page({
         if (res.confirm) {
           //确认后调用后台删除目标
           thispage.delTargetBackground(targetToDel.currentTarget.id);
-          coins -= 50;
+          app.globalData.coins -= 50;
           thispage.setData({
-            coinsP:coins,
+            coinsP: app.globalData.coins,
           })
           wx.showToast({
             title: '金币-50',

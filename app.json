@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/CssTest/CssTest",
     "pages/MoneyCollection/MoneyCollection",
     "pages/TargetPage/TargetPage",
     "pages/targetSet/targetSet",

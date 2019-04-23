@@ -1,0 +1,22 @@
+<!--pages/CssTest/CssTest.wxml-->
+
+<view class='targetSetCard card4color'>
+  <navigator url="../TargetPage/TargetPage" class='navigator'>
+    <text class='title'></text>
+  </navigator>
+</view>
+
+<view class='targetSetCard card4color'>
+  <text class='title'></text>
+</view>
+<view class='targetSetCard card4color'>
+  <navigator url="../MoneyCollection/MoneyCollection" class='navigator'>
+    <text class='title'></text>
+  </navigator>
+</view>
+<view class='targetSetCard card4color'>
+  <text class='title'></text>
+</view>
+<view class='targetSetCard card4color'>
+  <text class='title'></text>
+</view>
